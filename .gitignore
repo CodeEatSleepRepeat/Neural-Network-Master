@@ -1,0 +1,5 @@
+data/
+loss_logs/
+checkpoints/
+transformer_model_backup1.py
+transformer_model_backup2.py
