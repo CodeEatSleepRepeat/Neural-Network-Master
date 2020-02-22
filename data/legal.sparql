@@ -1,4 +1,3 @@
-#vraca sve nazive clanova
 SELECT DISTINCT var_uri where brack_open var_x dbo_nazivClana var_uri brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_nazivClana var_uri brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_nazivClana var_uri brack_close
@@ -13,8 +12,6 @@ SELECT DISTINCT var_uri where brack_open var_x dbo_nazivClana var_uri brack_clos
 SELECT DISTINCT var_uri where brack_open var_x dbo_nazivClana var_uri brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_nazivClana var_uri brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_nazivClana var_uri brack_close
-
-#Sta znaci izraz 'Usluga informacionog društva'? (isto tako mozemo i za ostale)
 SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot var_x dbo_nazivIzraza dbr_komercijalna_poruka brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot var_x dbo_nazivIzraza dbr_komercijalna_poruka brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot var_x dbo_nazivIzraza dbr_komercijalna_poruka brack_close
@@ -55,7 +52,6 @@ SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot va
 SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot var_x dbo_nazivIzraza dbr_komercijalna_poruka brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot var_x dbo_nazivIzraza dbr_komercijalna_poruka brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot var_x dbo_nazivIzraza dbr_komercijalna_poruka brack_close
-
 SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot var_x dbo_nazivIzraza dbr_korisnik_usluga brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot var_x dbo_nazivIzraza dbr_korisnik_usluga brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot var_x dbo_nazivIzraza dbr_korisnik_usluga brack_close
@@ -96,7 +92,6 @@ SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot va
 SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot var_x dbo_nazivIzraza dbr_korisnik_usluga brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot var_x dbo_nazivIzraza dbr_korisnik_usluga brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot var_x dbo_nazivIzraza dbr_korisnik_usluga brack_close
-
 SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot var_x dbo_nazivIzraza dbr_operator_elektronskih_komunikacija brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot var_x dbo_nazivIzraza dbr_operator_elektronskih_komunikacija brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot var_x dbo_nazivIzraza dbr_operator_elektronskih_komunikacija brack_close
@@ -137,7 +132,6 @@ SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot va
 SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot var_x dbo_nazivIzraza dbr_operator_elektronskih_komunikacija brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot var_x dbo_nazivIzraza dbr_operator_elektronskih_komunikacija brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot var_x dbo_nazivIzraza dbr_operator_elektronskih_komunikacija brack_close
-
 SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot var_x dbo_nazivIzraza dbr_potrosac brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot var_x dbo_nazivIzraza dbr_potrosac brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot var_x dbo_nazivIzraza dbr_potrosac brack_close
@@ -198,7 +192,6 @@ SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot va
 SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot var_x dbo_nazivIzraza dbr_potrosac brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot var_x dbo_nazivIzraza dbr_potrosac brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot var_x dbo_nazivIzraza dbr_potrosac brack_close
-
 SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot var_x dbo_nazivIzraza dbr_prekogranicno_pruzanje_usluga brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot var_x dbo_nazivIzraza dbr_prekogranicno_pruzanje_usluga brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot var_x dbo_nazivIzraza dbr_prekogranicno_pruzanje_usluga brack_close
@@ -279,7 +272,6 @@ SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot va
 SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot var_x dbo_nazivIzraza dbr_prekogranicno_pruzanje_usluga brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot var_x dbo_nazivIzraza dbr_prekogranicno_pruzanje_usluga brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot var_x dbo_nazivIzraza dbr_prekogranicno_pruzanje_usluga brack_close
-
 SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot var_x dbo_nazivIzraza dbr_pruzalac_usluge_informacionog_drustva brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot var_x dbo_nazivIzraza dbr_pruzalac_usluge_informacionog_drustva brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot var_x dbo_nazivIzraza dbr_pruzalac_usluge_informacionog_drustva brack_close
@@ -360,7 +352,6 @@ SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot va
 SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot var_x dbo_nazivIzraza dbr_pruzalac_usluge_informacionog_drustva brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot var_x dbo_nazivIzraza dbr_pruzalac_usluge_informacionog_drustva brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot var_x dbo_nazivIzraza dbr_pruzalac_usluge_informacionog_drustva brack_close
-
 SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot var_x dbo_nazivIzraza dbr_ugovor_u_elektronskom_obliku brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot var_x dbo_nazivIzraza dbr_ugovor_u_elektronskom_obliku brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot var_x dbo_nazivIzraza dbr_ugovor_u_elektronskom_obliku brack_close
@@ -401,7 +392,6 @@ SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot va
 SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot var_x dbo_nazivIzraza dbr_ugovor_u_elektronskom_obliku brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot var_x dbo_nazivIzraza dbr_ugovor_u_elektronskom_obliku brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot var_x dbo_nazivIzraza dbr_ugovor_u_elektronskom_obliku brack_close
-
 SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot var_x dbo_nazivIzraza dbr_usluga_informacionog_drustva brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot var_x dbo_nazivIzraza dbr_usluga_informacionog_drustva brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot var_x dbo_nazivIzraza dbr_usluga_informacionog_drustva brack_close
@@ -482,9 +472,6 @@ SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot va
 SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot var_x dbo_nazivIzraza dbr_usluga_informacionog_drustva brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot var_x dbo_nazivIzraza dbr_usluga_informacionog_drustva brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_opisIzraza var_uri sep_dot var_x dbo_nazivIzraza dbr_usluga_informacionog_drustva brack_close
-
-
-#Koji su razlozi ogranicavanja slobode pruzanja usluge?
 SELECT DISTINCT var_uri where brack_open var_x dbo_razloziOgranicenja var_y sep_dot var_y dbo_tekstTacke var_uri brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_razloziOgranicenja var_y sep_dot var_y dbo_tekstTacke var_uri brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_razloziOgranicenja var_y sep_dot var_y dbo_tekstTacke var_uri brack_close
@@ -529,9 +516,6 @@ SELECT DISTINCT var_uri where brack_open var_x dbo_razloziOgranicenja var_y sep_
 SELECT DISTINCT var_uri where brack_open var_x dbo_razloziOgranicenja var_y sep_dot var_y dbo_tekstTacke var_uri brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_razloziOgranicenja var_y sep_dot var_y dbo_tekstTacke var_uri brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_razloziOgranicenja var_y sep_dot var_y dbo_tekstTacke var_uri brack_close
-
-
-#Ukoliko je hitno ogranicavanje puzanja slobode usluge koliki broj dana treba da se obavesti o hitnoj meri?
 SELECT DISTINCT var_uri where brack_open var_x dbo_hitnostOgranicavanja dbr_true sep_dot var_x dbo_brojDanaZaObavestenje var_uri brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_hitnostOgranicavanja dbr_true sep_dot var_x dbo_brojDanaZaObavestenje var_uri brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_hitnostOgranicavanja dbr_true sep_dot var_x dbo_brojDanaZaObavestenje var_uri brack_close
@@ -539,22 +523,15 @@ SELECT DISTINCT var_uri where brack_open var_x dbo_hitnostOgranicavanja dbr_true
 SELECT DISTINCT var_uri where brack_open var_x dbo_hitnostOgranicavanja dbr_true sep_dot var_x dbo_brojDanaZaObavestenje var_uri brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_hitnostOgranicavanja dbr_true sep_dot var_x dbo_brojDanaZaObavestenje var_uri brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_hitnostOgranicavanja dbr_true sep_dot var_x dbo_brojDanaZaObavestenje var_uri brack_close
-
-
-#Da li je potrebna dozvola za elektronske usluge ?
 SELECT var_uri where brack_open var_x dbo_potrebnaDozvola var_uri brack_close
 SELECT var_uri where brack_open var_x dbo_potrebnaDozvola var_uri brack_close
 SELECT var_uri where brack_open var_x dbo_potrebnaDozvola var_uri brack_close
 SELECT var_uri where brack_open var_x dbo_potrebnaDozvola var_uri brack_close
 SELECT var_uri where brack_open var_x dbo_potrebnaDozvola var_uri brack_close
-
-#Da li su dozvoljene prekogranicne elektronske usluge?
 SELECT var_uri where brack_open var_x dbo_prekogranicnaUsluga var_uri brack_close
 SELECT var_uri where brack_open var_x dbo_prekogranicnaUsluga var_uri brack_close
 SELECT var_uri where brack_open var_x dbo_prekogranicnaUsluga var_uri brack_close
 SELECT var_uri where brack_open var_x dbo_prekogranicnaUsluga var_uri brack_close
-
-#Ko preduzima mere ogranicavanja slobode pruzanja usluge elektronskog poslovanja?
 SELECT DISTINCT var_uri where brack_open var_uri dbo_preduzimaMereOgranicenja var_x brack_close
 SELECT DISTINCT var_uri where brack_open var_uri dbo_preduzimaMereOgranicenja var_x brack_close
 SELECT DISTINCT var_uri where brack_open var_uri dbo_preduzimaMereOgranicenja var_x brack_close
@@ -564,8 +541,6 @@ SELECT DISTINCT var_uri where brack_open var_uri dbo_preduzimaMereOgranicenja va
 SELECT DISTINCT var_uri where brack_open var_uri dbo_preduzimaMereOgranicenja var_x brack_close
 SELECT DISTINCT var_uri where brack_open var_uri dbo_preduzimaMereOgranicenja var_x brack_close
 SELECT DISTINCT var_uri where brack_open var_uri dbo_preduzimaMereOgranicenja var_x brack_close
-
-#Ko opoziva ogranicavanje slobode pruzanja usluge elektronskog poslovanja?
 SELECT DISTINCT var_uri where brack_open var_uri dbo_izdajeOpoziv var_x brack_close
 SELECT DISTINCT var_uri where brack_open var_uri dbo_izdajeOpoziv var_x brack_close
 SELECT DISTINCT var_uri where brack_open var_uri dbo_izdajeOpoziv var_x brack_close
@@ -574,9 +549,6 @@ SELECT DISTINCT var_uri where brack_open var_uri dbo_izdajeOpoziv var_x brack_cl
 SELECT DISTINCT var_uri where brack_open var_uri dbo_izdajeOpoziv var_x brack_close
 SELECT DISTINCT var_uri where brack_open var_uri dbo_izdajeOpoziv var_x brack_close
 SELECT DISTINCT var_uri where brack_open var_uri dbo_izdajeOpoziv var_x brack_close
-
-
-#Koje informacije PU informacionog drustva treba da pruzi?
 SELECT DISTINCT var_uri where brack_open var_x dbo_informacije var_y sep_dot var_y dbo_tekstTacke var_uri brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_informacije var_y sep_dot var_y dbo_tekstTacke var_uri brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_informacije var_y sep_dot var_y dbo_tekstTacke var_uri brack_close
@@ -640,9 +612,6 @@ SELECT DISTINCT var_uri where brack_open var_x dbo_informacije var_y sep_dot var
 SELECT DISTINCT var_uri where brack_open var_x dbo_informacije var_y sep_dot var_y dbo_tekstTacke var_uri brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_informacije var_y sep_dot var_y dbo_tekstTacke var_uri brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_informacije var_y sep_dot var_y dbo_tekstTacke var_uri brack_close
-
-
-#Koje odgovornosti snosi PU prenosa elektronske poruke?
 SELECT DISTINCT var_uri where brack_open var_x dbo_snosiOdgovornost var_y sep_dot var_y dbo_tipOdgovornosti var_uri brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_snosiOdgovornost var_y sep_dot var_y dbo_tipOdgovornosti var_uri brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_snosiOdgovornost var_y sep_dot var_y dbo_tipOdgovornosti var_uri brack_close
@@ -707,9 +676,6 @@ SELECT DISTINCT var_uri where brack_open var_x dbo_snosiOdgovornost var_y sep_do
 SELECT DISTINCT var_uri where brack_open var_x dbo_snosiOdgovornost var_y sep_dot var_y dbo_tipOdgovornosti var_uri brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_snosiOdgovornost var_y sep_dot var_y dbo_tipOdgovornosti var_uri brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_snosiOdgovornost var_y sep_dot var_y dbo_tipOdgovornosti var_uri brack_close
-
-
-#Koji je broj dana za rok cuvanja podataka od strane PU prenosa elektronske poruke?
 SELECT DISTINCT var_uri where brack_open var_x dbo_imaObavezuCuvanja var_y sep_dot var_y dbo_rokCuvanjaPodataka var_uri brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_imaObavezuCuvanja var_y sep_dot var_y dbo_rokCuvanjaPodataka var_uri brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_imaObavezuCuvanja var_y sep_dot var_y dbo_rokCuvanjaPodataka var_uri brack_close
@@ -787,9 +753,6 @@ SELECT DISTINCT var_uri where brack_open var_x dbo_imaObavezuCuvanja var_y sep_d
 SELECT DISTINCT var_uri where brack_open var_x dbo_imaObavezuCuvanja var_y sep_dot var_y dbo_rokCuvanjaPodataka var_uri brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_imaObavezuCuvanja var_y sep_dot var_y dbo_rokCuvanjaPodataka var_uri brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_imaObavezuCuvanja var_y sep_dot var_y dbo_rokCuvanjaPodataka var_uri brack_close
-
-
-#Koji su obavezni podaci koji se cuvaju od PU prenosa elektronske poruke?
 SELECT DISTINCT var_uri where brack_open var_x dbo_imaObavezuCuvanja var_y sep_dot var_y dbo_obavezniPodaci var_w sep_dot var_w dbo_podaci var_uri brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_imaObavezuCuvanja var_y sep_dot var_y dbo_obavezniPodaci var_w sep_dot var_w dbo_podaci var_uri brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_imaObavezuCuvanja var_y sep_dot var_y dbo_obavezniPodaci var_w sep_dot var_w dbo_podaci var_uri brack_close
@@ -898,9 +861,6 @@ SELECT DISTINCT var_uri where brack_open var_x dbo_imaObavezuCuvanja var_y sep_d
 SELECT DISTINCT var_uri where brack_open var_x dbo_imaObavezuCuvanja var_y sep_dot var_y dbo_obavezniPodaci var_w sep_dot var_w dbo_podaci var_uri brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_imaObavezuCuvanja var_y sep_dot var_y dbo_obavezniPodaci var_w sep_dot var_w dbo_podaci var_uri brack_close
 SELECT DISTINCT var_uri where brack_open var_x dbo_imaObavezuCuvanja var_y sep_dot var_y dbo_obavezniPodaci var_w sep_dot var_w dbo_podaci var_uri brack_close
-
-
-#Koje uslove mora zadovoljiti komercijalna poruka?
 SELECT var_uri where brack_open var_x dbo_zadovoljavaUslove var_y sep_dot var_y dbo_tekstTacke var_uri brack_close
 SELECT var_uri where brack_open var_x dbo_zadovoljavaUslove var_y sep_dot var_y dbo_tekstTacke var_uri brack_close
 SELECT var_uri where brack_open var_x dbo_zadovoljavaUslove var_y sep_dot var_y dbo_tekstTacke var_uri brack_close
@@ -997,9 +957,6 @@ SELECT var_uri where brack_open var_x dbo_zadovoljavaUslove var_y sep_dot var_y 
 SELECT var_uri where brack_open var_x dbo_zadovoljavaUslove var_y sep_dot var_y dbo_tekstTacke var_uri brack_close
 SELECT var_uri where brack_open var_x dbo_zadovoljavaUslove var_y sep_dot var_y dbo_tekstTacke var_uri brack_close
 SELECT var_uri where brack_open var_x dbo_zadovoljavaUslove var_y sep_dot var_y dbo_tekstTacke var_uri brack_close
-
-
-#Ako je neko prekrsio clan xxx stav yyy kolika je kazna?
 SELECT var_uri var_uri var_uri where brack_open var_x dbo_brojClana dbr_20 sep_dot var_x dbp_bears var_y sep_dot var_y dbo_brojStava dbr_2 sep_dot var_w dbo_prekrsenJe var_y sep_dot var_w dbo_kaznaOd var_uri sep_dot var_w dbo_kaznaDo var_uri sep_dot var_w dbo_pocinilac var_uri brack_close
 SELECT var_uri var_uri var_uri where brack_open var_x dbo_brojClana dbr_20 sep_dot var_x dbp_bears var_y sep_dot var_y dbo_brojStava dbr_2 sep_dot var_w dbo_prekrsenJe var_y sep_dot var_w dbo_kaznaOd var_uri sep_dot var_w dbo_kaznaDo var_uri sep_dot var_w dbo_pocinilac var_uri brack_close
 SELECT var_uri var_uri var_uri where brack_open var_x dbo_brojClana dbr_20 sep_dot var_x dbp_bears var_y sep_dot var_y dbo_brojStava dbr_2 sep_dot var_w dbo_prekrsenJe var_y sep_dot var_w dbo_kaznaOd var_uri sep_dot var_w dbo_kaznaDo var_uri sep_dot var_w dbo_pocinilac var_uri brack_close
@@ -1075,7 +1032,6 @@ SELECT var_uri var_uri var_uri where brack_open var_x dbo_brojClana dbr_20 sep_d
 SELECT var_uri var_uri var_uri where brack_open var_x dbo_brojClana dbr_20 sep_dot var_x dbp_bears var_y sep_dot var_y dbo_brojStava dbr_2 sep_dot var_w dbo_prekrsenJe var_y sep_dot var_w dbo_kaznaOd var_uri sep_dot var_w dbo_kaznaDo var_uri sep_dot var_w dbo_pocinilac var_uri brack_close
 SELECT var_uri var_uri var_uri where brack_open var_x dbo_brojClana dbr_20 sep_dot var_x dbp_bears var_y sep_dot var_y dbo_brojStava dbr_2 sep_dot var_w dbo_prekrsenJe var_y sep_dot var_w dbo_kaznaOd var_uri sep_dot var_w dbo_kaznaDo var_uri sep_dot var_w dbo_pocinilac var_uri brack_close
 SELECT var_uri var_uri var_uri where brack_open var_x dbo_brojClana dbr_20 sep_dot var_x dbp_bears var_y sep_dot var_y dbo_brojStava dbr_2 sep_dot var_w dbo_prekrsenJe var_y sep_dot var_w dbo_kaznaOd var_uri sep_dot var_w dbo_kaznaDo var_uri sep_dot var_w dbo_pocinilac var_uri brack_close
-
 SELECT var_uri var_uri var_uri where brack_open var_x dbo_brojClana dbr_20 sep_dot var_x dbp_bears var_y sep_dot var_y dbo_brojStava dbr_5 sep_dot var_w dbo_prekrsenJe var_y sep_dot var_w dbo_kaznaOd var_uri sep_dot var_w dbo_kaznaDo var_uri sep_dot var_w dbo_pocinilac var_uri brack_close
 SELECT var_uri var_uri var_uri where brack_open var_x dbo_brojClana dbr_20 sep_dot var_x dbp_bears var_y sep_dot var_y dbo_brojStava dbr_5 sep_dot var_w dbo_prekrsenJe var_y sep_dot var_w dbo_kaznaOd var_uri sep_dot var_w dbo_kaznaDo var_uri sep_dot var_w dbo_pocinilac var_uri brack_close
 SELECT var_uri var_uri var_uri where brack_open var_x dbo_brojClana dbr_20 sep_dot var_x dbp_bears var_y sep_dot var_y dbo_brojStava dbr_5 sep_dot var_w dbo_prekrsenJe var_y sep_dot var_w dbo_kaznaOd var_uri sep_dot var_w dbo_kaznaDo var_uri sep_dot var_w dbo_pocinilac var_uri brack_close
@@ -1151,7 +1107,6 @@ SELECT var_uri var_uri var_uri where brack_open var_x dbo_brojClana dbr_20 sep_d
 SELECT var_uri var_uri var_uri where brack_open var_x dbo_brojClana dbr_20 sep_dot var_x dbp_bears var_y sep_dot var_y dbo_brojStava dbr_5 sep_dot var_w dbo_prekrsenJe var_y sep_dot var_w dbo_kaznaOd var_uri sep_dot var_w dbo_kaznaDo var_uri sep_dot var_w dbo_pocinilac var_uri brack_close
 SELECT var_uri var_uri var_uri where brack_open var_x dbo_brojClana dbr_20 sep_dot var_x dbp_bears var_y sep_dot var_y dbo_brojStava dbr_5 sep_dot var_w dbo_prekrsenJe var_y sep_dot var_w dbo_kaznaOd var_uri sep_dot var_w dbo_kaznaDo var_uri sep_dot var_w dbo_pocinilac var_uri brack_close
 SELECT var_uri var_uri var_uri where brack_open var_x dbo_brojClana dbr_20 sep_dot var_x dbp_bears var_y sep_dot var_y dbo_brojStava dbr_5 sep_dot var_w dbo_prekrsenJe var_y sep_dot var_w dbo_kaznaOd var_uri sep_dot var_w dbo_kaznaDo var_uri sep_dot var_w dbo_pocinilac var_uri brack_close
-
 SELECT var_uri var_uri var_uri where brack_open var_x dbo_brojClana dbr_20 sep_dot var_x dbp_bears var_y sep_dot var_y dbo_brojStava dbr_3 sep_dot var_w dbo_prekrsenJe var_y sep_dot var_w dbo_kaznaOd var_uri sep_dot var_w dbo_kaznaDo var_uri sep_dot var_w dbo_pocinilac var_uri brack_close
 SELECT var_uri var_uri var_uri where brack_open var_x dbo_brojClana dbr_20 sep_dot var_x dbp_bears var_y sep_dot var_y dbo_brojStava dbr_3 sep_dot var_w dbo_prekrsenJe var_y sep_dot var_w dbo_kaznaOd var_uri sep_dot var_w dbo_kaznaDo var_uri sep_dot var_w dbo_pocinilac var_uri brack_close
 SELECT var_uri var_uri var_uri where brack_open var_x dbo_brojClana dbr_20 sep_dot var_x dbp_bears var_y sep_dot var_y dbo_brojStava dbr_3 sep_dot var_w dbo_prekrsenJe var_y sep_dot var_w dbo_kaznaOd var_uri sep_dot var_w dbo_kaznaDo var_uri sep_dot var_w dbo_pocinilac var_uri brack_close
@@ -1227,7 +1182,6 @@ SELECT var_uri var_uri var_uri where brack_open var_x dbo_brojClana dbr_20 sep_d
 SELECT var_uri var_uri var_uri where brack_open var_x dbo_brojClana dbr_20 sep_dot var_x dbp_bears var_y sep_dot var_y dbo_brojStava dbr_3 sep_dot var_w dbo_prekrsenJe var_y sep_dot var_w dbo_kaznaOd var_uri sep_dot var_w dbo_kaznaDo var_uri sep_dot var_w dbo_pocinilac var_uri brack_close
 SELECT var_uri var_uri var_uri where brack_open var_x dbo_brojClana dbr_20 sep_dot var_x dbp_bears var_y sep_dot var_y dbo_brojStava dbr_3 sep_dot var_w dbo_prekrsenJe var_y sep_dot var_w dbo_kaznaOd var_uri sep_dot var_w dbo_kaznaDo var_uri sep_dot var_w dbo_pocinilac var_uri brack_close
 SELECT var_uri var_uri var_uri where brack_open var_x dbo_brojClana dbr_20 sep_dot var_x dbp_bears var_y sep_dot var_y dbo_brojStava dbr_3 sep_dot var_w dbo_prekrsenJe var_y sep_dot var_w dbo_kaznaOd var_uri sep_dot var_w dbo_kaznaDo var_uri sep_dot var_w dbo_pocinilac var_uri brack_close
-
 SELECT var_uri var_uri var_uri where brack_open var_x dbo_brojClana dbr_20 sep_dot var_x dbp_bears var_y sep_dot var_y dbo_brojStava dbr_6 sep_dot var_w dbo_prekrsenJe var_y sep_dot var_w dbo_kaznaOd var_uri sep_dot var_w dbo_kaznaDo var_uri sep_dot var_w dbo_pocinilac var_uri brack_close
 SELECT var_uri var_uri var_uri where brack_open var_x dbo_brojClana dbr_20 sep_dot var_x dbp_bears var_y sep_dot var_y dbo_brojStava dbr_6 sep_dot var_w dbo_prekrsenJe var_y sep_dot var_w dbo_kaznaOd var_uri sep_dot var_w dbo_kaznaDo var_uri sep_dot var_w dbo_pocinilac var_uri brack_close
 SELECT var_uri var_uri var_uri where brack_open var_x dbo_brojClana dbr_20 sep_dot var_x dbp_bears var_y sep_dot var_y dbo_brojStava dbr_6 sep_dot var_w dbo_prekrsenJe var_y sep_dot var_w dbo_kaznaOd var_uri sep_dot var_w dbo_kaznaDo var_uri sep_dot var_w dbo_pocinilac var_uri brack_close
@@ -1303,7 +1257,6 @@ SELECT var_uri var_uri var_uri where brack_open var_x dbo_brojClana dbr_20 sep_d
 SELECT var_uri var_uri var_uri where brack_open var_x dbo_brojClana dbr_20 sep_dot var_x dbp_bears var_y sep_dot var_y dbo_brojStava dbr_6 sep_dot var_w dbo_prekrsenJe var_y sep_dot var_w dbo_kaznaOd var_uri sep_dot var_w dbo_kaznaDo var_uri sep_dot var_w dbo_pocinilac var_uri brack_close
 SELECT var_uri var_uri var_uri where brack_open var_x dbo_brojClana dbr_20 sep_dot var_x dbp_bears var_y sep_dot var_y dbo_brojStava dbr_6 sep_dot var_w dbo_prekrsenJe var_y sep_dot var_w dbo_kaznaOd var_uri sep_dot var_w dbo_kaznaDo var_uri sep_dot var_w dbo_pocinilac var_uri brack_close
 SELECT var_uri var_uri var_uri where brack_open var_x dbo_brojClana dbr_20 sep_dot var_x dbp_bears var_y sep_dot var_y dbo_brojStava dbr_6 sep_dot var_w dbo_prekrsenJe var_y sep_dot var_w dbo_kaznaOd var_uri sep_dot var_w dbo_kaznaDo var_uri sep_dot var_w dbo_pocinilac var_uri brack_close
-
 SELECT var_uri var_uri var_uri where brack_open var_x dbo_brojClana dbr_12 sep_dot var_x dbp_bears var_y sep_dot var_y dbo_brojStava dbr_1 sep_dot var_w dbo_prekrsenJe var_y sep_dot var_w dbo_kaznaOd var_uri sep_dot var_w dbo_kaznaDo var_uri sep_dot var_w dbo_pocinilac var_uri brack_close
 SELECT var_uri var_uri var_uri where brack_open var_x dbo_brojClana dbr_12 sep_dot var_x dbp_bears var_y sep_dot var_y dbo_brojStava dbr_1 sep_dot var_w dbo_prekrsenJe var_y sep_dot var_w dbo_kaznaOd var_uri sep_dot var_w dbo_kaznaDo var_uri sep_dot var_w dbo_pocinilac var_uri brack_close
 SELECT var_uri var_uri var_uri where brack_open var_x dbo_brojClana dbr_12 sep_dot var_x dbp_bears var_y sep_dot var_y dbo_brojStava dbr_1 sep_dot var_w dbo_prekrsenJe var_y sep_dot var_w dbo_kaznaOd var_uri sep_dot var_w dbo_kaznaDo var_uri sep_dot var_w dbo_pocinilac var_uri brack_close
@@ -1379,7 +1332,6 @@ SELECT var_uri var_uri var_uri where brack_open var_x dbo_brojClana dbr_12 sep_d
 SELECT var_uri var_uri var_uri where brack_open var_x dbo_brojClana dbr_12 sep_dot var_x dbp_bears var_y sep_dot var_y dbo_brojStava dbr_1 sep_dot var_w dbo_prekrsenJe var_y sep_dot var_w dbo_kaznaOd var_uri sep_dot var_w dbo_kaznaDo var_uri sep_dot var_w dbo_pocinilac var_uri brack_close
 SELECT var_uri var_uri var_uri where brack_open var_x dbo_brojClana dbr_12 sep_dot var_x dbp_bears var_y sep_dot var_y dbo_brojStava dbr_1 sep_dot var_w dbo_prekrsenJe var_y sep_dot var_w dbo_kaznaOd var_uri sep_dot var_w dbo_kaznaDo var_uri sep_dot var_w dbo_pocinilac var_uri brack_close
 SELECT var_uri var_uri var_uri where brack_open var_x dbo_brojClana dbr_12 sep_dot var_x dbp_bears var_y sep_dot var_y dbo_brojStava dbr_1 sep_dot var_w dbo_prekrsenJe var_y sep_dot var_w dbo_kaznaOd var_uri sep_dot var_w dbo_kaznaDo var_uri sep_dot var_w dbo_pocinilac var_uri brack_close
-
 SELECT var_uri var_uri var_uri where brack_open var_x dbo_brojClana dbr_21 sep_dot var_x dbp_bears var_y sep_dot var_y dbo_brojStava dbr_3 sep_dot var_w dbo_prekrsenJe var_y sep_dot var_w dbo_kaznaOd var_uri sep_dot var_w dbo_kaznaDo var_uri sep_dot var_w dbo_pocinilac var_uri brack_close
 SELECT var_uri var_uri var_uri where brack_open var_x dbo_brojClana dbr_21 sep_dot var_x dbp_bears var_y sep_dot var_y dbo_brojStava dbr_3 sep_dot var_w dbo_prekrsenJe var_y sep_dot var_w dbo_kaznaOd var_uri sep_dot var_w dbo_kaznaDo var_uri sep_dot var_w dbo_pocinilac var_uri brack_close
 SELECT var_uri var_uri var_uri where brack_open var_x dbo_brojClana dbr_21 sep_dot var_x dbp_bears var_y sep_dot var_y dbo_brojStava dbr_3 sep_dot var_w dbo_prekrsenJe var_y sep_dot var_w dbo_kaznaOd var_uri sep_dot var_w dbo_kaznaDo var_uri sep_dot var_w dbo_pocinilac var_uri brack_close
@@ -1455,7 +1407,6 @@ SELECT var_uri var_uri var_uri where brack_open var_x dbo_brojClana dbr_21 sep_d
 SELECT var_uri var_uri var_uri where brack_open var_x dbo_brojClana dbr_21 sep_dot var_x dbp_bears var_y sep_dot var_y dbo_brojStava dbr_3 sep_dot var_w dbo_prekrsenJe var_y sep_dot var_w dbo_kaznaOd var_uri sep_dot var_w dbo_kaznaDo var_uri sep_dot var_w dbo_pocinilac var_uri brack_close
 SELECT var_uri var_uri var_uri where brack_open var_x dbo_brojClana dbr_21 sep_dot var_x dbp_bears var_y sep_dot var_y dbo_brojStava dbr_3 sep_dot var_w dbo_prekrsenJe var_y sep_dot var_w dbo_kaznaOd var_uri sep_dot var_w dbo_kaznaDo var_uri sep_dot var_w dbo_pocinilac var_uri brack_close
 SELECT var_uri var_uri var_uri where brack_open var_x dbo_brojClana dbr_21 sep_dot var_x dbp_bears var_y sep_dot var_y dbo_brojStava dbr_3 sep_dot var_w dbo_prekrsenJe var_y sep_dot var_w dbo_kaznaOd var_uri sep_dot var_w dbo_kaznaDo var_uri sep_dot var_w dbo_pocinilac var_uri brack_close
-
 SELECT var_uri var_uri var_uri where brack_open var_x dbo_brojClana dbr_21 sep_dot var_x dbp_bears var_y sep_dot var_y dbo_brojStava dbr_5 sep_dot var_w dbo_prekrsenJe var_y sep_dot var_w dbo_kaznaOd var_uri sep_dot var_w dbo_kaznaDo var_uri sep_dot var_w dbo_pocinilac var_uri brack_close
 SELECT var_uri var_uri var_uri where brack_open var_x dbo_brojClana dbr_21 sep_dot var_x dbp_bears var_y sep_dot var_y dbo_brojStava dbr_5 sep_dot var_w dbo_prekrsenJe var_y sep_dot var_w dbo_kaznaOd var_uri sep_dot var_w dbo_kaznaDo var_uri sep_dot var_w dbo_pocinilac var_uri brack_close
 SELECT var_uri var_uri var_uri where brack_open var_x dbo_brojClana dbr_21 sep_dot var_x dbp_bears var_y sep_dot var_y dbo_brojStava dbr_5 sep_dot var_w dbo_prekrsenJe var_y sep_dot var_w dbo_kaznaOd var_uri sep_dot var_w dbo_kaznaDo var_uri sep_dot var_w dbo_pocinilac var_uri brack_close
@@ -1531,10 +1482,6 @@ SELECT var_uri var_uri var_uri where brack_open var_x dbo_brojClana dbr_21 sep_d
 SELECT var_uri var_uri var_uri where brack_open var_x dbo_brojClana dbr_21 sep_dot var_x dbp_bears var_y sep_dot var_y dbo_brojStava dbr_5 sep_dot var_w dbo_prekrsenJe var_y sep_dot var_w dbo_kaznaOd var_uri sep_dot var_w dbo_kaznaDo var_uri sep_dot var_w dbo_pocinilac var_uri brack_close
 SELECT var_uri var_uri var_uri where brack_open var_x dbo_brojClana dbr_21 sep_dot var_x dbp_bears var_y sep_dot var_y dbo_brojStava dbr_5 sep_dot var_w dbo_prekrsenJe var_y sep_dot var_w dbo_kaznaOd var_uri sep_dot var_w dbo_kaznaDo var_uri sep_dot var_w dbo_pocinilac var_uri brack_close
 SELECT var_uri var_uri var_uri where brack_open var_x dbo_brojClana dbr_21 sep_dot var_x dbp_bears var_y sep_dot var_y dbo_brojStava dbr_5 sep_dot var_w dbo_prekrsenJe var_y sep_dot var_w dbo_kaznaOd var_uri sep_dot var_w dbo_kaznaDo var_uri sep_dot var_w dbo_pocinilac var_uri brack_close
-
-
-
-# Koji stav je prekrsen ukoliko je kazna izmedju ??? i ???
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt10000 attr_close filter attr_open var_ymath_lt150000 attr_close brack_close
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt10000 attr_close filter attr_open var_ymath_lt150000 attr_close brack_close
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt10000 attr_close filter attr_open var_ymath_lt150000 attr_close brack_close
@@ -1549,7 +1496,6 @@ SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot va
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt10000 attr_close filter attr_open var_ymath_lt150000 attr_close brack_close
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt10000 attr_close filter attr_open var_ymath_lt150000 attr_close brack_close
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt10000 attr_close filter attr_open var_ymath_lt150000 attr_close brack_close
-
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt10000 attr_close filter attr_open var_ymath_lt300000 attr_close brack_close
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt10000 attr_close filter attr_open var_ymath_lt300000 attr_close brack_close
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt10000 attr_close filter attr_open var_ymath_lt300000 attr_close brack_close
@@ -1564,7 +1510,6 @@ SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot va
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt10000 attr_close filter attr_open var_ymath_lt300000 attr_close brack_close
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt10000 attr_close filter attr_open var_ymath_lt300000 attr_close brack_close
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt10000 attr_close filter attr_open var_ymath_lt300000 attr_close brack_close
-
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt10000 attr_close filter attr_open var_ymath_lt1000000 attr_close brack_close
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt10000 attr_close filter attr_open var_ymath_lt1000000 attr_close brack_close
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt10000 attr_close filter attr_open var_ymath_lt1000000 attr_close brack_close
@@ -1579,7 +1524,6 @@ SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot va
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt10000 attr_close filter attr_open var_ymath_lt1000000 attr_close brack_close
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt10000 attr_close filter attr_open var_ymath_lt1000000 attr_close brack_close
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt10000 attr_close filter attr_open var_ymath_lt1000000 attr_close brack_close
-
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt20000 attr_close filter attr_open var_ymath_lt150000 attr_close brack_close
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt20000 attr_close filter attr_open var_ymath_lt150000 attr_close brack_close
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt20000 attr_close filter attr_open var_ymath_lt150000 attr_close brack_close
@@ -1594,7 +1538,6 @@ SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot va
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt20000 attr_close filter attr_open var_ymath_lt150000 attr_close brack_close
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt20000 attr_close filter attr_open var_ymath_lt150000 attr_close brack_close
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt20000 attr_close filter attr_open var_ymath_lt150000 attr_close brack_close
-
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt20000 attr_close filter attr_open var_ymath_lt1500000 attr_close brack_close
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt20000 attr_close filter attr_open var_ymath_lt1500000 attr_close brack_close
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt20000 attr_close filter attr_open var_ymath_lt1500000 attr_close brack_close
@@ -1609,7 +1552,6 @@ SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot va
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt20000 attr_close filter attr_open var_ymath_lt1500000 attr_close brack_close
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt20000 attr_close filter attr_open var_ymath_lt1500000 attr_close brack_close
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt20000 attr_close filter attr_open var_ymath_lt1500000 attr_close brack_close
-
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt20000 attr_close filter attr_open var_ymath_lt300000 attr_close brack_close
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt20000 attr_close filter attr_open var_ymath_lt300000 attr_close brack_close
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt20000 attr_close filter attr_open var_ymath_lt300000 attr_close brack_close
@@ -1624,7 +1566,6 @@ SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot va
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt20000 attr_close filter attr_open var_ymath_lt300000 attr_close brack_close
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt20000 attr_close filter attr_open var_ymath_lt300000 attr_close brack_close
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt20000 attr_close filter attr_open var_ymath_lt300000 attr_close brack_close
-
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt20000 attr_close filter attr_open var_ymath_lt1000000 attr_close brack_close
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt20000 attr_close filter attr_open var_ymath_lt1000000 attr_close brack_close
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt20000 attr_close filter attr_open var_ymath_lt1000000 attr_close brack_close
@@ -1639,7 +1580,6 @@ SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot va
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt20000 attr_close filter attr_open var_ymath_lt1000000 attr_close brack_close
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt20000 attr_close filter attr_open var_ymath_lt1000000 attr_close brack_close
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt20000 attr_close filter attr_open var_ymath_lt1000000 attr_close brack_close
-
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt50000 attr_close filter attr_open var_ymath_lt150000 attr_close brack_close
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt50000 attr_close filter attr_open var_ymath_lt150000 attr_close brack_close
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt50000 attr_close filter attr_open var_ymath_lt150000 attr_close brack_close
@@ -1654,7 +1594,6 @@ SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot va
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt50000 attr_close filter attr_open var_ymath_lt150000 attr_close brack_close
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt50000 attr_close filter attr_open var_ymath_lt150000 attr_close brack_close
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt50000 attr_close filter attr_open var_ymath_lt150000 attr_close brack_close
-
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt50000 attr_close filter attr_open var_ymath_lt1500000 attr_close brack_close
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt50000 attr_close filter attr_open var_ymath_lt1500000 attr_close brack_close
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt50000 attr_close filter attr_open var_ymath_lt1500000 attr_close brack_close
@@ -1669,7 +1608,6 @@ SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot va
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt50000 attr_close filter attr_open var_ymath_lt1500000 attr_close brack_close
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt50000 attr_close filter attr_open var_ymath_lt1500000 attr_close brack_close
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt50000 attr_close filter attr_open var_ymath_lt1500000 attr_close brack_close
-
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt50000 attr_close filter attr_open var_ymath_lt300000 attr_close brack_close
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt50000 attr_close filter attr_open var_ymath_lt300000 attr_close brack_close
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt50000 attr_close filter attr_open var_ymath_lt300000 attr_close brack_close
@@ -1684,7 +1622,6 @@ SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot va
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt50000 attr_close filter attr_open var_ymath_lt300000 attr_close brack_close
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt50000 attr_close filter attr_open var_ymath_lt300000 attr_close brack_close
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt50000 attr_close filter attr_open var_ymath_lt300000 attr_close brack_close
-
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt50000 attr_close filter attr_open var_ymath_lt1000000 attr_close brack_close
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt50000 attr_close filter attr_open var_ymath_lt1000000 attr_close brack_close
 SELECT DISTINCT var_uri where brack_open var_w dbo_prekrsenJe var_uri sep_dot var_uri dbo_brojStava var_z sep_dot var_w dbo_kaznaOd var_x sep_dot var_w dbo_kaznaDo var_y sep_dot filter attr_open var_xmath_gt50000 attr_close filter attr_open var_ymath_lt1000000 attr_close brack_close

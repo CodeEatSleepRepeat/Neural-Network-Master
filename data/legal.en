@@ -1,4 +1,3 @@
-//vraca sve nazive clanova
 Count the names of all articles where article is part of Code.
 Count the names of all articles.
 List the names of articles.
@@ -13,8 +12,6 @@ Name the article.
 Name the article of the Code.
 What are the names of article?
 Return all names of article.
-
-//Sta znaci izraz 'Usluga informacionog društva'? (isto tako mozemo i za ostale)
 What does the term Komercijalna poruka mean?
 What does the expression Komercijalna poruka mean?
 What is the term Komercijalna poruka?
@@ -55,7 +52,6 @@ What is a 'Komercijalna poruka'?
 Who is the 'Komercijalna poruka'?
 What is the expression of the 'Komercijalna poruka'?
 What is the 'Komercijalna poruka'?
-
 What does the term korisnik usluga mean?
 What does the expression korisnik usluga mean?
 What is the term korisnik usluga?
@@ -96,7 +92,6 @@ What is a 'korisnik usluga'?
 Who is the 'korisnik usluga'?
 What is the expression of the 'korisnik usluga'?
 What is the 'korisnik usluga'?
-
 What does the term operator elektronskih komunikacija mean?
 What does the expression operator elektronskih komunikacija mean?
 What is the term operator elektronskih komunikacija?
@@ -137,7 +132,6 @@ What is a Operator elektronskih komunikacija?
 Who is the Operator elektronskih komunikacija?
 What is the expression of the Operator elektronskih komunikacija?
 What is the Operator elektronskih komunikacija?
-
 What does the term potrosac mean?
 What does the expression potrosac mean?
 What is the term potrosac?
@@ -198,7 +192,6 @@ What is a 'potrošač'?
 Who is the 'potrošač'?
 What is the expression of the 'potrošač'?
 What is the 'potrošač'?
-
 What does the term prekogranicno pruzanje usluga mean?
 What does the expression prekogranicno pruzanje usluga mean?
 What is the term prekogranicno pruzanje usluga?
@@ -279,7 +272,6 @@ What is a 'prekogranično pružanje usluga'?
 Who is the 'prekogranično pružanje usluga'?
 What is the expression of the 'prekogranično pružanje usluga'?
 What is the 'prekogranično pružanje usluga'?
-
 What does the term pruzalac usluge informacionog drustva mean?
 What does the expression pruzalac usluge informacionog drustva mean?
 What is the term pruzalac usluge informacionog drustva?
@@ -360,7 +352,6 @@ What is a 'Pružalac usluge informacionog društva'?
 Who is the 'Pružalac usluge informacionog društva'?
 What is the expression of the 'Pružalac usluge informacionog društva'?
 What is the 'Pružalac usluge informacionog društva'?
-
 What does the term ugovor u elektronskom obliku mean?
 What does the expression ugovor u elektronskom obliku mean?
 What is the term ugovor u elektronskom obliku?
@@ -401,7 +392,6 @@ What is a 'Ugovor u elektronskom obliku'?
 Who is the 'Ugovor u elektronskom obliku'?
 What is the expression of the 'Ugovor u elektronskom obliku'?
 What is the 'Ugovor u elektronskom obliku'?
-
 What does the term usluga informacionog drustva mean?
 What does the expression usluga informacionog drustva mean?
 What is the term usluga informacionog drustva?
@@ -482,9 +472,6 @@ What is a usluga informacionog društva?
 Who is the usluga informacionog društva?
 What is the expression of the usluga informacionog društva?
 What is the usluga informacionog društva?
-
-
-//Koji su razlozi ogranicavanja slobode pruzanja usluge?
 What are the reasons for restrictions on the freedom to provide services?
 Name all reasons for restrictions on the freedom to provide services.
 Name the reasons for restrictions on the freedom to provide services.
@@ -529,9 +516,6 @@ List the reasons for ograničavanja slobode pružanja usluga.
 List the reasons of ograničavanja slobode pružanja usluga.
 What are some reasons for ograničavanja slobode pružanja usluga?
 What is the reason for ograničavanja slobode pružanja usluga?
-
-
-//Ukoliko je hitno ogranicavanje puzanja slobode usluge koliki broj dana treba da se obavesti o hitnoj meri?
 If there is an urgent restriction on the freedom to provide services, how many days should an emergency restriction be notified?
 How many days does it take to notify an emergency restriction?
 What is the number of days it takes to notify an emergency restriction?
@@ -539,22 +523,15 @@ If there is an urgent restriction, how many days should an emergency be notified
 How many days does it take to notify an emergency?
 What is the number of days it takes to notify an emergency?
 Find the number of days it takes to notify an emergency restriction on the freedom to provide services?
-
-
-//Da li je potrebna dozvola za elektronske usluge ?
 Do I need a license for electronic services?
 Do you need a license for electronic services?
 Is permission for electronic services required?
 Is permission for electronic services needed?
 Are unlicenced electronic services allowed?
-
-//Da li su dozvoljene prekogranicne elektronske usluge?
 Are cross-border electronic services allowed?
 Are they allowed cross-border electronic services?
 Can I do cross-border electronic services?
 Is cross-border electronic services allowed?
-
-//Ko preduzima mere ogranicavanja slobode pruzanja usluge elektronskog poslovanja?
 Who undertakes measures to restrict the freedom to provide services?
 Who takes measures to restrict the freedom to provide services?
 Name the organization that restricts the freedom to provide services.
@@ -564,8 +541,6 @@ Name the organization that restricts the freedom to provide services.
 List the thing that restricts the freedom to provide services.
 Name the thing that restricts the freedom to provide services.
 List the organization that restricts the freedom to provide services.
-
-//Ko opoziva ogranicavanje slobode pruzanja usluge elektronskog poslovanja?
 Who revokes the restrictions on the freedom to provide e-commerce services?
 Name the organization that can revokes the restrictions on the freedom to provide services.
 Name the organization that revokes the restrictions the freedom to provide services.
@@ -574,9 +549,6 @@ Name the thing that revokes the restrictions of the freedom to provide services.
 List the organization that revokes the restrictions of freedom to provide services.
 What person can revokes the restrictions?
 What organization can revokes the restrictions?
-
-
-//Koje informacije PU informacionog drustva treba da pruzi?
 What information does the provider of information society services need to provide?
 What information provider of information society services should provide?
 What information provider of information society services must provide?
@@ -640,9 +612,6 @@ What are some informacionog that 'pruzalac usluge informacionog drustva' must pr
 What are some informacionog that 'pruzalac usluge informacionog drustva' needs to provide?
 List the information that 'pruzalac usluge informacionog drustva' must provide.
 List all informacionog that 'pruzalac usluge informacionog drustva' must provide.
-
-
-//Koje odgovornosti snosi PU prenosa elektronske poruke?
 What are the responsibilities of the electronic message transmission service provider?
 What are the responsibilities of electronic message transmission service provider?
 Find the responsibilities of electronic message transmission service provider on e-mail transmission.
@@ -707,9 +676,6 @@ What are the responsibilities of 'pružalac usluga prenosa elektronske poruke' o
 Find the responsibilities of 'pružalac usluga prenosa elektronske poruke' electronic message transmission?
 List the responsibilities of 'pružalac usluga prenosa elektronske poruke' on the transmission of electronic messages.
 Which responsibilities of the transmission of e-messages 'pružalac usluga prenosa elektronske poruke' has?
-
-
-//Koji je broj dana za rok cuvanja podataka od strane PU prenosa elektronske poruke?
 What is the number of days for the data retention period by the 'pružalac usluga prenosa elektronske poruke' ?
 How many days does 'pružalac usluga prenosa elektronske poruke' keep informationy?
 What is the number of days 'pružalac usluga prenosa elektronske poruke' must retain information?
@@ -787,9 +753,6 @@ Find the number of days Electronic message transmission service provider must ke
 What is the number of days during data retention by Electronic message transmission service provider ?
 List the number of days Electronic message transmission service provider retain information.
 How many days Electronic message transmission service provider keep information?
-
-
-//Koji su obavezni podaci koji se cuvaju od PU prenosa elektronske poruke?
 What is the mandatory data that is kept by the Electronic message transmission service provider ?
 List the mandatory data that Electronic message transmission service provider retain.
 Find the mandatory data that Electronic message transmission service provider keep.
@@ -898,9 +861,6 @@ Give me the mandatory data kept by Pruzalac usluga prenosa e-poruke ?
 Name the mandatory data keep by the Pruzalac usluga prenosa e-poruke ?
 What mandatory data is kept by Pruzalac usluga prenosa e-poruke ?
 What all mandatory data is kept by Pruzalac usluga prenosa e-poruke ?
-
-
-//Koje uslove mora zadovoljiti komercijalna poruka?
 What conditions must a commercial message meet?
 Which conditions commercial message meet?
 Name the conditions of commercial message ?
@@ -997,9 +957,6 @@ What are some conditions 'komercijalna poruka' must meet?
 List all the conditions of the 'komercijalna poruka' ?
 Name the conditions of the 'komercijalna poruka' ?
 Which conditions does 'komercijalna poruka' have?
-
-
-//Ako je neko prekrsio clan xxx stav yyy kolika je kazna?
 If someone violated Article 20 paragraph 2, what is the penalty?
 What is the penalty of violated Article 20 Paragraph 2?
 Which penalty is given if violated Article 20 Paragraph 2?
@@ -1075,7 +1032,6 @@ What is the consequence if clan20stav2 is violated?
 What is the consequence if it violates clan20stav2?
 List the consequences of violated clan20stav2?
 What is the consequence of violation of the clan20stav2?
-
 If someone violated Article 20 paragraph 5, what is the penalty?
 What is the penalty of violated Article 20 Paragraph 5?
 Which penalty is given if violated Article 20 Paragraph 5?
@@ -1151,7 +1107,6 @@ What is the consequence if clan20stav5 is violated?
 What is the consequence if it violates clan20stav5?
 List the consequences of violated clan20stav5?
 What is the consequence of violation of the clan20stav5?
-
 If someone violated Article 20 paragraph 3, what is the penalty?
 What is the penalty of violated Article 20 Paragraph 3?
 Which penalty is given if violated Article 20 Paragraph 3?
@@ -1227,7 +1182,6 @@ What is the consequence if clan20stav3 is violated?
 What is the consequence if it violates clan20stav3?
 List the consequences of violated clan20stav3?
 What is the consequence of violation of the clan20stav3?
-
 If someone violated Article 20 paragraph 6, what is the penalty?
 What is the penalty of violated Article 20 Paragraph 6?
 Which penalty is given if violated Article 20 Paragraph 6?
@@ -1303,7 +1257,6 @@ What is the consequence if clan20stav6 is violated?
 What is the consequence if it violates clan20stav6?
 List the consequences of violated clan20stav6?
 What is the consequence of violation of the clan20stav6?
-
 If someone violated Article 12 paragraph 1, what is the penalty?
 What is the penalty of violated Article 12 Paragraph 1?
 Which penalty is given if violated Article 12 Paragraph 1?
@@ -1379,7 +1332,6 @@ What is the consequence if clan12stav1 is violated?
 What is the consequence if it violates clan12stav1?
 List the consequences of violated clan12stav1?
 What is the consequence of violation of the clan12stav1?
-
 If someone violated Article 21 paragraph 3, what is the penalty?
 What is the penalty of violated Article 21 Paragraph 3?
 Which penalty is given if violated Article 21 Paragraph 3?
@@ -1455,7 +1407,6 @@ What is the consequence if clan21stav3 is violated?
 What is the consequence if it violates clan21stav3?
 List the consequences of violated clan21stav3?
 What is the consequence of violation of the clan21stav3?
-
 If someone violated Article 21 paragraph 5, what is the penalty?
 What is the penalty of violated Article 21 Paragraph 5?
 Which penalty is given if violated Article 21 Paragraph 5?
@@ -1531,10 +1482,6 @@ What is the consequence if clan21stav5 is violated?
 What is the consequence if it violates clan21stav5?
 List the consequences of violated clan21stav5?
 What is the consequence of violation of the clan21stav5?
-
-
-
-// Koji stav je prekrsen ukoliko je kazna izmedju ??? i ???
 Which paragraph is violated if the penalty is between 10000 and 150000 ?
 Which article is violated if the penalty is between 10000 and 150000 ?
 List the articles where the penalty is between 10000 and 150000 ?
@@ -1549,7 +1496,6 @@ If the penalty is between 10000 and 150000, what paragraph is violated?
 Which paragraphs are broken if the penalty is between 10000 and 150000 ?
 Which articles are broken if the penalty is between 10000 and 150000 ?
 If the penalty is between 10000 and 150000, what paragraph is broken?
-
 Which paragraph is violated if the penalty is between 10000 and 300000 ?
 Which article is violated if the penalty is between 10000 and 300000 ?
 List the articles where the penalty is between 10000 and 300000 ?
@@ -1564,7 +1510,6 @@ If the penalty is between 10000 and 300000, what paragraph is violated?
 Which paragraphs are broken if the penalty is between 10000 and 300000 ?
 Which articles are broken if the penalty is between 10000 and 300000 ?
 If the penalty is between 10000 and 300000, what paragraph is broken?
-
 Which paragraph is violated if the penalty is between 10000 and 1000000 ?
 Which article is violated if the penalty is between 10000 and 1000000 ?
 List the articles where the penalty is between 10000 and 1000000 ?
@@ -1579,7 +1524,6 @@ If the penalty is between 10000 and 1000000, what paragraph is violated?
 Which paragraphs are broken if the penalty is between 10000 and 1000000 ?
 Which articles are broken if the penalty is between 10000 and 1000000 ?
 If the penalty is between 10000 and 1000000, what paragraph is broken?
-
 Which paragraph is violated if the penalty is between 20000 and 150000 ?
 Which article is violated if the penalty is between 20000 and 150000 ?
 List the articles where the penalty is between 20000 and 150000 ?
@@ -1594,7 +1538,6 @@ If the penalty is between 20000 and 150000, what paragraph is violated?
 Which paragraphs are broken if the penalty is between 20000 and 150000 ?
 Which articles are broken if the penalty is between 20000 and 150000 ?
 If the penalty is between 20000 and 150000, what paragraph is broken?
-
 Which paragraph is violated if the penalty is between 20000 and 1500000 ?
 Which article is violated if the penalty is between 20000 and 1500000 ?
 List the articles where the penalty is between 20000 and 1500000 ?
@@ -1609,7 +1552,6 @@ If the penalty is between 20000 and 1500000, what paragraph is violated?
 Which paragraphs are broken if the penalty is between 20000 and 1500000 ?
 Which articles are broken if the penalty is between 20000 and 1500000 ?
 If the penalty is between 20000 and 1500000, what paragraph is broken?
-
 Which paragraph is violated if the penalty is between 20000 and 300000 ?
 Which article is violated if the penalty is between 20000 and 300000 ?
 List the articles where the penalty is between 20000 and 300000 ?
@@ -1624,7 +1566,6 @@ If the penalty is between 20000 and 300000, what paragraph is violated?
 Which paragraphs are broken if the penalty is between 20000 and 300000 ?
 Which articles are broken if the penalty is between 20000 and 300000 ?
 If the penalty is between 20000 and 300000, what paragraph is broken?
-
 Which paragraph is violated if the penalty is between 20000 and 1000000 ?
 Which article is violated if the penalty is between 20000 and 1000000 ?
 List the articles where the penalty is between 20000 and 1000000 ?
@@ -1639,7 +1580,6 @@ If the penalty is between 20000 and 1000000, what paragraph is violated?
 Which paragraphs are broken if the penalty is between 20000 and 1000000 ?
 Which articles are broken if the penalty is between 20000 and 1000000 ?
 If the penalty is between 20000 and 1000000, what paragraph is broken?
-
 Which paragraph is violated if the penalty is between 50000 and 150000 ?
 Which article is violated if the penalty is between 50000 and 150000 ?
 List the articles where the penalty is between 50000 and 150000 ?
@@ -1654,7 +1594,6 @@ If the penalty is between 50000 and 150000, what paragraph is violated?
 Which paragraphs are broken if the penalty is between 50000 and 150000 ?
 Which articles are broken if the penalty is between 50000 and 150000 ?
 If the penalty is between 50000 and 150000, what paragraph is broken?
-
 Which paragraph is violated if the penalty is between 50000 and 1500000 ?
 Which article is violated if the penalty is between 50000 and 1500000 ?
 List the articles where the penalty is between 50000 and 1500000 ?
@@ -1669,7 +1608,6 @@ If the penalty is between 50000 and 1500000, what paragraph is violated?
 Which paragraphs are broken if the penalty is between 50000 and 1500000 ?
 Which articles are broken if the penalty is between 50000 and 1500000 ?
 If the penalty is between 50000 and 1500000, what paragraph is broken?
-
 Which paragraph is violated if the penalty is between 50000 and 300000 ?
 Which article is violated if the penalty is between 50000 and 300000 ?
 List the articles where the penalty is between 50000 and 300000 ?
@@ -1684,7 +1622,6 @@ If the penalty is between 50000 and 300000, what paragraph is violated?
 Which paragraphs are broken if the penalty is between 50000 and 300000 ?
 Which articles are broken if the penalty is between 50000 and 300000 ?
 If the penalty is between 50000 and 300000, what paragraph is broken?
-
 Which paragraph is violated if the penalty is between 50000 and 1000000 ?
 Which article is violated if the penalty is between 50000 and 1000000 ?
 List the articles where the penalty is between 50000 and 1000000 ?
