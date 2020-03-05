@@ -3,16 +3,14 @@ import numpy as np
 import unicodedata
 import re
 import os
-import requests
 import time
-import datetime
-from sklearn.model_selection import train_test_split
-from difflib import SequenceMatcher
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 FILENAME_EN = 'data/data.en'
 FILENAME_SPARQL = 'data/data.sparql'
+FILENAME_LEGAL_EN = 'data/legal.en'
+FILENAME_LEGAL_SPARQL = 'data/legal.sparql'
 LOSS_DIR = 'loss_logs'
 checkpoint_dir = 'checkpoints'
 model_dir = 'model'
@@ -54,23 +52,28 @@ def normalize_string(s):
 print('Loading data...')
 raw_data_en = list(read_file(FILENAME_EN))
 raw_data_fr = list(read_file(FILENAME_SPARQL))
+raw_data_legal_en = list(read_file(FILENAME_LEGAL_EN))
+raw_data_legal_fr = list(read_file(FILENAME_LEGAL_SPARQL))
 
 raw_data_en = [normalize_string(data) for data in raw_data_en]
 raw_data_fr_in = ['<start> ' + normalize_string(data) for data in raw_data_fr]
 raw_data_fr_out = [normalize_string(data) + ' <end>' for data in raw_data_fr]
+raw_data_legal_en = [normalize_string(data) for data in raw_data_legal_en]
+raw_data_legal_fr_in = ['<start> ' + normalize_string(data) for data in raw_data_legal_fr]
+raw_data_legal_fr_out = [normalize_string(data) + ' <end>' for data in raw_data_legal_fr]
 
 
 """## Tokenization"""
 
-en_tokenizer = tf.keras.preprocessing.text.Tokenizer(filters='')
-en_tokenizer.fit_on_texts(raw_data_en)
+en_tokenizer = tf.keras.preprocessing.text.Tokenizer(filters='', oov_token=1)
+en_tokenizer.fit_on_texts(raw_data_en + raw_data_legal_en)
 data_en = en_tokenizer.texts_to_sequences(raw_data_en)
 data_en = tf.keras.preprocessing.sequence.pad_sequences(data_en,
                                                         padding='post')
 
-fr_tokenizer = tf.keras.preprocessing.text.Tokenizer(filters='')
-fr_tokenizer.fit_on_texts(raw_data_fr_in)
-fr_tokenizer.fit_on_texts(raw_data_fr_out)
+fr_tokenizer = tf.keras.preprocessing.text.Tokenizer(filters='', oov_token=1)
+fr_tokenizer.fit_on_texts(raw_data_fr_in + raw_data_legal_fr_in)
+fr_tokenizer.fit_on_texts(raw_data_fr_out + raw_data_legal_fr_out)
 data_fr_in = fr_tokenizer.texts_to_sequences(raw_data_fr_in)
 data_fr_in = tf.keras.preprocessing.sequence.pad_sequences(data_fr_in,
                                                            padding='post')
@@ -470,6 +473,8 @@ optimizer = tf.keras.optimizers.Adam(lr,
                                      beta_2=0.98,
                                      epsilon=1e-9)
 
+def get_lr(optimizer):
+    return optimizer._decayed_lr(tf.float32)
 
 def predict(test_source_text=None):
     """ Predict the output sentence for a given input sentence
@@ -579,6 +584,7 @@ def train():
                 i = i + 1
                 with writer.as_default():
                     tf.summary.scalar('training loss', loss, step=i)
+                    tf.summary.scalar('learning rate', get_lr(optimizer), step=i)
 
                 # stop training ang exit
                 print('\nThe training has ended!\n')
@@ -599,6 +605,7 @@ def train():
                 i = i + 1
                 with writer.as_default():
                     tf.summary.scalar('training loss', loss, step=i)
+                    tf.summary.scalar('learning rate', get_lr(optimizer), step=i)
 
                 starttime = time.time()
 
