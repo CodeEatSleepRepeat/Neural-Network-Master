@@ -4,6 +4,8 @@ import unicodedata
 import re
 import os
 import time
+from difflib import SequenceMatcher
+from sklearn.model_selection import train_test_split
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
@@ -15,7 +17,8 @@ LOSS_DIR = 'loss_logs'
 checkpoint_dir = 'checkpoints'
 model_dir = 'model'
 NUM_EPOCHS = 15
-EARLY_STOP_LOSS = 0.1    # stop training after training_accuracy gets below this value (i.e. 0.1)
+BATCH_SIZE = 64
+EARLY_STOP_ACC = 0.59    # stop training after validation_accuracy gets above this value (i.e. 0.9)
 
 
 def read_file(filename):
@@ -55,6 +58,8 @@ raw_data_fr = list(read_file(FILENAME_SPARQL))
 raw_data_legal_en = list(read_file(FILENAME_LEGAL_EN))
 raw_data_legal_fr = list(read_file(FILENAME_LEGAL_SPARQL))
 
+raw_data_en, eval_data_en, raw_data_fr, eval_data_fr = train_test_split(raw_data_en, raw_data_fr, test_size = 0.10, random_state = 42)
+
 raw_data_en = [normalize_string(data) for data in raw_data_en]
 raw_data_fr_in = ['<start> ' + normalize_string(data) for data in raw_data_fr]
 raw_data_fr_out = [normalize_string(data) + ' <end>' for data in raw_data_fr]
@@ -62,31 +67,31 @@ raw_data_legal_en = [normalize_string(data) for data in raw_data_legal_en]
 raw_data_legal_fr_in = ['<start> ' + normalize_string(data) for data in raw_data_legal_fr]
 raw_data_legal_fr_out = [normalize_string(data) + ' <end>' for data in raw_data_legal_fr]
 
+eval_data_en = [normalize_string(data) for data in eval_data_en]
+eval_data_fr_in = ['<start> ' + normalize_string(data) for data in eval_data_fr]
+eval_data_fr_out = [normalize_string(data) + ' <end>' for data in eval_data_fr]
+
 
 """## Tokenization"""
 
 en_tokenizer = tf.keras.preprocessing.text.Tokenizer(filters='', oov_token=1)
-en_tokenizer.fit_on_texts(raw_data_en + raw_data_legal_en)
-data_en = en_tokenizer.texts_to_sequences(raw_data_en)
-data_en = tf.keras.preprocessing.sequence.pad_sequences(data_en,
-                                                        padding='post')
+en_tokenizer.fit_on_texts(raw_data_en + raw_data_legal_en + eval_data_en)
 
 fr_tokenizer = tf.keras.preprocessing.text.Tokenizer(filters='', oov_token=1)
-fr_tokenizer.fit_on_texts(raw_data_fr_in + raw_data_legal_fr_in)
-fr_tokenizer.fit_on_texts(raw_data_fr_out + raw_data_legal_fr_out)
-data_fr_in = fr_tokenizer.texts_to_sequences(raw_data_fr_in)
-data_fr_in = tf.keras.preprocessing.sequence.pad_sequences(data_fr_in,
-                                                           padding='post')
+fr_tokenizer.fit_on_texts(raw_data_fr_in + raw_data_legal_fr_in + eval_data_fr_in)
+fr_tokenizer.fit_on_texts(raw_data_fr_out + raw_data_legal_fr_out + eval_data_fr_out)
 
+data_en = en_tokenizer.texts_to_sequences(raw_data_en)
+data_en = tf.keras.preprocessing.sequence.pad_sequences(data_en, padding='post')
+data_fr_in = fr_tokenizer.texts_to_sequences(raw_data_fr_in)
+data_fr_in = tf.keras.preprocessing.sequence.pad_sequences(data_fr_in, padding='post')
 data_fr_out = fr_tokenizer.texts_to_sequences(raw_data_fr_out)
-data_fr_out = tf.keras.preprocessing.sequence.pad_sequences(data_fr_out,
-                                                            padding='post')
+data_fr_out = tf.keras.preprocessing.sequence.pad_sequences(data_fr_out, padding='post')
+
 
 """## Create tf.data.Dataset object"""
 
-BATCH_SIZE = 64
-dataset = tf.data.Dataset.from_tensor_slices(
-    (data_en, data_fr_in, data_fr_out))
+dataset = tf.data.Dataset.from_tensor_slices((data_en, data_fr_in, data_fr_out))
 dataset = dataset.shuffle(len(data_en)).batch(BATCH_SIZE)
 
 
@@ -518,6 +523,40 @@ def predict(test_source_text=None):
     #print(' '.join(out_words))
     return en_alignments, de_bot_alignments, de_mid_alignments, test_source_text.split(' '), out_words
 
+def validate(full_dataset = False):
+    # Validates current state of model on validation dataset
+    #
+    #Returns:
+    #    The validation accuracy of model (0.0 - 1.0)
+    #
+    validation_acc = []
+
+    sentence_number = 0
+
+    if full_dataset == False:
+        _, en_data = train_test_split(eval_data_en, test_size=0.002)
+        _, fr_data = train_test_split(eval_data_fr, test_size=0.002)
+    else:
+        en_data = eval_data_en
+        fr_data = eval_data_fr
+
+    for source_seq, target_seq in zip(en_data, fr_data):
+        _, _, _, _, out_words = predict(source_seq)
+        decoder_output = ' '.join(out_words)
+        target_seq = normalize_string(target_seq)
+
+        #sentence_number = sentence_number + 1
+        #if int(sentence_number) % 10 == 0:
+        #    print('\nValidation step {} of {}'.format(sentence_number, len(min(en_data,fr_data))))
+        #    print('Target sentence: ', target_seq)
+        #    print('Decoder sentence: ', decoder_output)
+
+        s = SequenceMatcher(None, target_seq.lower(), decoder_output.lower())
+        acc = s.ratio()
+        validation_acc = np.append(validation_acc, acc)
+
+    return np.mean(validation_acc)
+
 
 @tf.function
 def train_step(source_seq, target_seq_in, target_seq_out):
@@ -560,65 +599,59 @@ def train():
         for batch, (source_seq, target_seq_in, target_seq_out) in enumerate(dataset.take(-1)):
             loss = train_step(source_seq, target_seq_in, target_seq_out)
 
-            if loss.numpy() < EARLY_STOP_LOSS:
-                # STOP TRAINING AND SAVE MODELS
-                print('\nStopping training! Current loss is {}, which is below {}'.format(loss.numpy(), EARLY_STOP_LOSS))
-
-                # Save the weights
-                encoder.save_weights(model_dir + "/encoder")
-                decoder.save_weights(model_dir + "/decoder")
-
-                # Show the model architecture
-                print('\n')
-                encoder.summary()
-                print('\n')
-                decoder.summary()
-                print('\n')
-
-                # SAVING THE TRAINING MODEL
-                save_path = manager.save()
-                print("Saved Checkpoint for Epoch {} Batch {}: {}".format(e+1, batch, save_path))
-
-                # Save LOSS for TensorBoard visualization
-                writer = tf.summary.create_file_writer(LOSS_DIR)
-                i = i + 1
-                with writer.as_default():
-                    tf.summary.scalar('training loss', loss, step=i)
-                    tf.summary.scalar('learning rate', get_lr(optimizer), step=i)
-
-                # stop training ang exit
-                print('\nThe training has ended!\n')
-                return
-
-
             checkpoint.step.assign_add(1)
             if int(checkpoint.step) % 100 == 0:
-                print('\nEpoch {} Batch {} Training Loss {:.4f} Elapsed time {:.2f}s'.format(
-                    e + 1, batch, loss.numpy(), time.time() - starttime))
+                # Calculate validation loss
+                val_acc = validate(e==NUM_EPOCHS)
 
-                # SAVING THE TRAINING MODEL
-                save_path = manager.save()
-                print("Saved Checkpoint for Epoch {} Batch {}: {}".format(e+1, batch, save_path))
+                print('\nEpoch {} Batch {} Training Loss {:.4f} Validation Accuracy {:.4f} Elapsed time {:.2f}s'.format(e + 1, batch, loss.numpy(), val_acc, time.time() - starttime))
 
-                # Save LOSS for TensorBoard visualization
+                # Save scalars for TensorBoard visualization
                 writer = tf.summary.create_file_writer(LOSS_DIR)
                 i = i + 1
                 with writer.as_default():
                     tf.summary.scalar('training loss', loss, step=i)
                     tf.summary.scalar('learning rate', get_lr(optimizer), step=i)
+                    tf.summary.scalar('validation accuracy', val_acc, step=i)
+
+
+                # SAVING THE TRAINING MODEL
+                save_path = manager.save()
+                print("Saved Checkpoint for Epoch {} Batch {}: {}".format(e+1, batch, save_path))
 
                 starttime = time.time()
 
-        try:
-            predict()
-        except Exception as ex:
-            print(ex)
-            continue
+                if val_acc > EARLY_STOP_ACC:
+                    # STOP TRAINING AND SAVE MODELS
+                    print('\nStopping training! Current loss is {}, which is above {}'.format(loss.numpy(), EARLY_STOP_ACC))
+
+                    # Save the weights
+                    encoder.save_weights(model_dir + "/encoder")
+                    decoder.save_weights(model_dir + "/decoder")
+
+                    # Show the model architecture
+                    print('\n')
+                    encoder.summary()
+                    print('\n')
+                    decoder.summary()
+                    print('\n')
+
+                    # stop training ang exit
+                    print('\nThe training has ended!\n')
+                    return
 
     # Save the weights
     encoder.save_weights(model_dir + "/encoder")
     decoder.save_weights(model_dir + "/decoder")
 
+    # Show the model architecture
+    print('\n')
+    encoder.summary()
+    print('\n')
+    decoder.summary()
+    print('\n')
+
+    # stop training ang exit
     print('\nThe training has ended!\n')
     return
 
@@ -638,59 +671,7 @@ else:
 # Training from start to finish
 train()
 
-print('\nPredicting sentences in progress...\n')
-# Answers to test_sents
-answer_sents = (
-    "ask where brack_open dbr_Handy_Manny dbo_numberOfEpisodes var_a sep_dot dbr_Absolutely_Fabulous dbo_numberOfEpisodes var_b sep_dot filter  attr_open var_amath_gtvar_b attr_close  brack_close",
-    "select distinct var_uri where brack_open var_uri rdf_type dbo_Mountain sep_dot var_uri dbo_locatedInArea dbr_Liechtenstein sep_dot var_uri dbo_elevation var_elevation sep_dot brack_close _obd_ var_elevation  limit 1",
-    "SELECT DISTINCT var_uri where brack_open var_x dbo_occupation dbr_University_of_Ottawa sep_dot var_x dbo_nationality var_uri brack_close",
-    "SELECT DISTINCT var_uri where brack_open dbr_East_Gaston_High_School dbp_athletics var_uri sep_dot dbr_Julián_Rejala dbo_field var_uri brack_close",
-    "SELECT DISTINCT var_uri where brack_open dbr_2011_GEICO_400 dbp_firstDriver var_uri brack_close",
-    "SELECT DISTINCT var_uri where brack_open dbr_Oui_Oui,_Si_Si,_Ja_Ja,_Da_Da dbo_artist var_uri brack_close",
-    "SELECT DISTINCT var_uri where brack_open var_uri dbp_family dbr_King_family_ attr_open Emmerdale attr_close  sep_dot var_uri dbp_family dbr_Sugden_family sep_dot var_uri a dbo_FictionalCharacter brack_close",
-    "SELECT DISTINCT var_uri where brack_open dbr_The_King's_Dragon dbo_subsequentWork var_x sep_dot var_x dbo_series var_uri sep_dot var_x a dbo_Book brack_close",
-    "ASK where brack_open dbr_The_Rutles dbo_formerBandMember dbr_Neil_Innes brack_close",
-    "SELECT DISTINCT COUNT attr_open var_uri attr_close  where brack_open var_x dbo_publisher dbr_Gold_Medal_Books sep_dot var_x dbp_genre var_uri brack_close",
-    "SELECT DISTINCT var_uri where brack_open var_uri dbo_manufacturer dbr_Mazda sep_dot var_uri dbo_manufacturer dbr_Toyota brack_close",
-    "SELECT DISTINCT var_uri where brack_open dbr_Roger_Tan dbp_education var_uri sep_dot dbr_Kwan_Cho-yiu dbo_almaMater var_uri brack_close",
-    "SELECT DISTINCT var_uri where brack_open var_x dbo_type dbr_RTÉ sep_dot var_x dbo_regionServed var_uri sep_dot var_x a dbo_Organisation brack_close",
-    "SELECT DISTINCT var_uri where brack_open dbr_Virginia_State_Route_252 dbo_routeStart var_uri brack_close",
-    "SELECT DISTINCT var_uri where brack_open var_x dbo_birthPlace dbr_Moravia sep_dot var_uri dbo_commander var_x sep_dot var_uri a dbo_MilitaryConflict brack_close",
-    "SELECT DISTINCT var_uri where brack_open dbr_Ngô_Xuân_Lịch dbo_battle var_uri sep_dot dbr_John_R._Lasater dbp_battles var_uri brack_close",
-    "SELECT DISTINCT var_uri where brack_open dbr_John_Archibald_Campbell dbp_office var_uri sep_dot dbr_Pierce_Butler_ attr_open justice attr_close  dbp_office var_uri brack_close",
-    "SELECT DISTINCT var_uri where brack_open var_uri dbo_restingPlace dbr_La_Crosse,_Wisconsin sep_dot var_uri dbp_predecessor dbr_Walter_D._McIndoe sep_dot var_uri a dbo_Person brack_close",
-    "SELECT DISTINCT var_uri where brack_open dbr_J._M._G._Le_Clézio dbo_notableWork var_uri brack_close",
-    "SELECT DISTINCT var_uri where brack_open dbr_RD-0216 dbp_purpose var_uri brack_close",
-    "SELECT DISTINCT var_uri where brack_open dbr_Jeewan_Kumaranatunga dbo_relation var_uri brack_close"
-)
-
-test_sents = (
-    "does handy manny have more episodes than absolutely fabulous?",
-    "what is the highest mountain in liechtenstein?",
-    "university of ottawa is played by which countries' citizens?",
-    "List the sports of east gaston high school which are of interest of julián rejala ?",
-    "Which driver came first in the 2011 geico 400 ?",
-    "Who is the performer of oui oui ?",
-    "What is the fictional character which belongs to families of king family and sugden family?",
-    "What is the series of the book which is a subsequent work of the king's dragon ?",
-    "Was neil innes a member of the rutles?",
-    "How many different kinds of games are published by gold medal books?",
-    "What is manufactured by mazda and toyota togather?",
-    "Which education center roger tan attended which was also the alma mater of kwan cho-yiu ?",
-    "List the served region of the organisations of rté.",
-    "What is the route start of virginia state route 252 ?",
-    "In which wars did commanders born in moravia fight?",
-    "Which battle is ngô xuân lịch associated with to which john r. lasater is also associated ?",
-    "Where do the politicians, john archibald campbell and pierce butler work?",
-    "List the people with final resting place as la crosse and has walter d. mcindoe as predecessor?",
-    "List all the notable works of  j. m. g. le clézio?",
-    "What is the purpose of rd-0216 ?",
-    "With whom is jeewan kumaranatunga a relative to who also served Nazi Army?"
-)
-
-for i, test_sent in enumerate(test_sents):
-    test_sequence = normalize_string(test_sent)
-    _, _, _, _, text = predict(test_sequence)
-    print(text)
+# Validate models
+print(validate(False))
 
 print('\nProgram ended successfully\n')

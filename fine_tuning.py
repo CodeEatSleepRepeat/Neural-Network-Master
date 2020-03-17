@@ -5,7 +5,8 @@ import re
 import os
 import time
 from sklearn.model_selection import train_test_split
-from difflib import SequenceMatcher
+from nltk.tokenize import word_tokenize
+import gensim
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
@@ -13,17 +14,20 @@ FILENAME_EN = 'data/data.en'
 FILENAME_SPARQL = 'data/data.sparql'
 FILENAME_LEGAL_EN = 'data/legal.en'
 FILENAME_LEGAL_SPARQL = 'data/legal.sparql'
+FILENAME_UNIQUE_LEGAL_SPARQL = 'data/unique.legal.sparql'
 LOSS_DIR = 'finetuned_loss_logs'
 model_dir = 'model'
 model_legal_dir = 'finetuned_model'
 checkpoint_legal_dir = 'finetuned_checkpoints'
+
 MODEL_SIZE = 128
-BATCH_SIZE = 1
-NUM_EPOCHS = 15000
+BATCH_SIZE = 64
+NUM_EPOCHS = 200
 H = 8
 NUM_LAYERS = 4
 EARLY_STOP_ACC = 0.9
 VALIDATION_SPLIT = 0.1
+TOP_N = 5
 
 
 """## Create the Multihead Attention layer"""
@@ -368,43 +372,27 @@ eval_data_legal_fr_out = [normalize_string(data) + ' <end>' for data in eval_dat
 
 en_tokenizer = tf.keras.preprocessing.text.Tokenizer(filters='', oov_token=1)
 en_tokenizer.fit_on_texts(raw_data_en + raw_data_legal_en + eval_data_legal_en)
-data_en = en_tokenizer.texts_to_sequences(raw_data_en)
-data_en = tf.keras.preprocessing.sequence.pad_sequences(data_en,
-                                                        padding='post')
 
 fr_tokenizer = tf.keras.preprocessing.text.Tokenizer(filters='', oov_token=1)
 fr_tokenizer.fit_on_texts(raw_data_fr_in + raw_data_legal_fr_in + eval_data_legal_fr_in)
 fr_tokenizer.fit_on_texts(raw_data_fr_out + raw_data_legal_fr_out + eval_data_legal_fr_out)
+
+data_en = en_tokenizer.texts_to_sequences(raw_data_en)
+data_en = tf.keras.preprocessing.sequence.pad_sequences(data_en, padding='post')
 data_fr_in = fr_tokenizer.texts_to_sequences(raw_data_fr_in)
-data_fr_in = tf.keras.preprocessing.sequence.pad_sequences(data_fr_in,
-                                                           padding='post')
-
-data_fr_out = fr_tokenizer.texts_to_sequences(raw_data_fr_out)
-data_fr_out = tf.keras.preprocessing.sequence.pad_sequences(data_fr_out,
-                                                            padding='post')
-
+data_fr_in = tf.keras.preprocessing.sequence.pad_sequences(data_fr_in, padding='post')
 
 data_legal_en = en_tokenizer.texts_to_sequences(raw_data_legal_en)
-data_legal_en = tf.keras.preprocessing.sequence.pad_sequences(data_legal_en,
-                                                        padding='post')
-
+data_legal_en = tf.keras.preprocessing.sequence.pad_sequences(data_legal_en, padding='post')
 data_legal_fr_in = fr_tokenizer.texts_to_sequences(raw_data_legal_fr_in)
-data_legal_fr_in = tf.keras.preprocessing.sequence.pad_sequences(data_legal_fr_in,
-                                                           padding='post')
-
+data_legal_fr_in = tf.keras.preprocessing.sequence.pad_sequences(data_legal_fr_in, padding='post')
 data_legal_fr_out = fr_tokenizer.texts_to_sequences(raw_data_legal_fr_out)
-data_legal_fr_out = tf.keras.preprocessing.sequence.pad_sequences(data_legal_fr_out,
-                                                            padding='post')
+data_legal_fr_out = tf.keras.preprocessing.sequence.pad_sequences(data_legal_fr_out, padding='post')
 
 
 """## Create tf.data.Dataset object"""
 
-dataset = tf.data.Dataset.from_tensor_slices(
-    (data_en, data_fr_in, data_fr_out))
-dataset = dataset.shuffle(len(data_en)).batch(BATCH_SIZE)
-
-dataset_legal = tf.data.Dataset.from_tensor_slices(
-    (data_legal_en, data_legal_fr_in, data_legal_fr_out))
+dataset_legal = tf.data.Dataset.from_tensor_slices((data_legal_en, data_legal_fr_in, data_legal_fr_out))
 dataset_legal = dataset_legal.shuffle(len(data_legal_en)).batch(BATCH_SIZE)
 
 
@@ -595,32 +583,94 @@ checkpoint = tf.train.Checkpoint(step=tf.Variable(1),
 manager = tf.train.CheckpointManager(checkpoint, checkpoint_legal_dir, max_to_keep=3)
 
 
+class Validator:
+    def __init__(self):
+        self.full_question_dataset = read_file(FILENAME_UNIQUE_LEGAL_SPARQL)
+
+        self.file_docs = []
+        for line in self.full_question_dataset:
+            self.file_docs.append(normalize_string(line))
+
+        self.gen_docs = [[w.lower() for w in word_tokenize(text)] for text in self.file_docs]
+        self.dictionary = gensim.corpora.Dictionary(self.gen_docs)
+        self.corpus = [self.dictionary.doc2bow(gen_doc) for gen_doc in self.gen_docs]
+        self.tf_idf = gensim.models.TfidfModel(self.corpus)
+        self.sims = gensim.similarities.Similarity('',self.tf_idf[self.corpus],num_features=len(self.dictionary))
+
+    def get_closest_sparqls(self, nn_question, num_of_closest):
+        # tokenize words
+        question = [w.lower() for w in word_tokenize(nn_question)]
+
+        # create bag of words
+        question_bow = self.dictionary.doc2bow(question)
+
+        # find similarity for each document
+        question_tf_idf = self.tf_idf[question_bow]
+
+        # print (document_number, document_similarity)
+        #print('\nComparing Result:', sims[question_tf_idf])
+
+        # calculate sum of similarities for each query doc
+        sum_of_sims =(np.sum(self.sims[question_tf_idf], dtype=np.float32))
+
+        # calculate average of similarity for each query doc
+        avg = sum_of_sims / len(self.file_docs)
+        # print average of similarity for each query doc
+        #print(f'avg: {avg}')
+
+        #print('\n\n')
+        # get list of similarity values question has with every question in our dataset
+        similarity = self.sims[question_tf_idf]
+        #print('Similarity:', similarity)
+
+        # get similarity of sentences that have similarity above average
+        above = [(s,idx) for idx,s in enumerate(similarity) if(s>avg)]
+        #print('Above avg: ', above)
+
+        #print('NN question:  ', nn_question)
+        #print('Best answers: ')
+
+        # get top n='num_of_closest' indexes of sentences that are closest to requested
+        top_idx = sorted( [x for (i,x) in enumerate(above)], reverse=True )[:num_of_closest]
+        #print('Top index: ', top_idx)
+        #print('\n')
+
+        # get top n='num_of_closest' sentences that are closest to requested
+        top_sentences = [ (self.full_question_dataset[i].strip(),p) for (p,i) in top_idx ]
+
+        return top_sentences
+
+    def validate_top_n(self, nn_question, desired_question, top_n):
+        top_sentences = self.get_closest_sparqls(nn_question, top_n)
+        for s,i in top_sentences:
+            if desired_question==(normalize_string(s) + '  <end>'):
+                return 1.0
+
+        return 0.0
+
+
+validator = Validator()
+
 def validate():
     # Validates current state of model on validation dataset
     #
     #Returns:
-    #    The validation accuracy of model (0.0 - 1.0)
+    #    The validation accuracy (Fn and F1) of model (0.0 - 1.0)
     #
-    validation_acc = []
-
-    sentence_number = 0
-
+    fn = []
+    f1 = []
     for source_seq, target_seq in zip(eval_data_legal_en, eval_data_legal_fr_out):
         _, _, _, _, out_words = predict(source_seq)
         decoder_output = ' '.join(out_words)
-        decoder_output = decoder_output + ' <end>'
+        decoder_output = decoder_output
 
-        sentence_number = sentence_number + 1
-        if int(sentence_number) % 10 == 0:
-            print('\nValidation step {} of {}'.format(sentence_number, len(min(eval_data_legal_en,eval_data_legal_fr_out))))
-            print('Target sentence: ', target_seq)
-            print('Decoder sentence: ', decoder_output)
+        acc = validator.validate_top_n(decoder_output, target_seq, TOP_N)
+        fn = np.append(fn, acc)
 
-        s = SequenceMatcher(None, target_seq, decoder_output)
-        acc = s.ratio()
-        validation_acc = np.append(validation_acc, acc)
+        acc = validator.validate_top_n(decoder_output, target_seq, 1)
+        f1 = np.append(f1, acc)
 
-    return np.mean(validation_acc)
+    return [np.mean(fn),np.mean(f1)]
 
 
 def train():
@@ -632,63 +682,47 @@ def train():
         for batch, (source_seq, target_seq_in, target_seq_out) in enumerate(dataset_legal.take(-1)):
             loss = train_step(source_seq, target_seq_in, target_seq_out)
 
-        checkpoint.step.assign_add(1)
-        if int(checkpoint.step) % 1 == 0:
-            val_acc = validate()
 
-            print('\nEpoch {} Batch {} Training Loss {:.4f} Validation Accuracy {:.4f} Elapsed time {:.2f}s'.format(
-                e + 1, batch, loss.numpy(), val_acc, time.time() - starttime))
+            checkpoint.step.assign_add(1)
+            if int(checkpoint.step) % 100 == 0:
+                val_acc = validate()
 
-            # SAVING THE TRAINING MODEL
-            save_path = manager.save()
-            print("Saved Checkpoint for Epoch {} Batch {}: {}".format(e+1, batch, save_path))
-
-            # Save data for TensorBoard visualization
-            writer = tf.summary.create_file_writer(LOSS_DIR)
-            i = i + 1
-            with writer.as_default():
-                tf.summary.scalar('training loss', loss, step=i)
-                tf.summary.scalar('learning rate', get_lr(optimizer), step=i)
-                tf.summary.scalar('validation accuracy', val_acc, step=i)
-
-
-            if val_acc > EARLY_STOP_ACC:
-                # STOP TRAINING AND SAVE MODELS
-                print('\nStopping fine tuning! Current validation accuracy is {}, which is above {}'.format(val_acc, EARLY_STOP_ACC))
-
-                # Save the weights
-                encoder.save_weights(model_legal_dir + "/encoder")
-                decoder.save_weights(model_legal_dir + "/decoder")
-
-                # Show the model architecture
-                print('\n')
-                encoder.summary()
-                print('\n')
-                decoder.summary()
-                print('\n')
+                print('\nEpoch {} Batch {} Training Loss {:.4f} Top-{}-accuracy {:.4f} Top-1-accuracy {:.4f} Elapsed time {:.2f}s'.format(e + 1, batch, loss.numpy(), TOP_N, val_acc[0], val_acc[1], time.time() - starttime))
 
                 # SAVING THE TRAINING MODEL
                 save_path = manager.save()
                 print("Saved Checkpoint for Epoch {} Batch {}: {}".format(e+1, batch, save_path))
 
-                # Save LOSS for TensorBoard visualization
+                # Save data for TensorBoard visualization
                 writer = tf.summary.create_file_writer(LOSS_DIR)
                 i = i + 1
                 with writer.as_default():
                     tf.summary.scalar('training loss', loss, step=i)
                     tf.summary.scalar('learning rate', get_lr(optimizer), step=i)
+                    tf.summary.scalar('top-' + str(TOP_N) + ' accuracy', val_acc[0], step=i)
+                    tf.summary.scalar('top-1 accuracy', val_acc[1], step=i)
 
-                # stop training ang exit
-                print('\nThe training has ended!\n')
-                return
+                if val_acc[1] > EARLY_STOP_ACC:
+                    # STOP TRAINING AND SAVE MODELS
+                    print('\nStopping fine tuning! Current top-{}-accuracy is {}, which is above {}'.format(TOP_N, val_acc[0], EARLY_STOP_ACC))
 
-            starttime = time.time()
+                    # Save the weights
+                    encoder.save_weights(model_legal_dir + "/encoder")
+                    decoder.save_weights(model_legal_dir + "/decoder")
 
-        try:
-            predict()
-        except Exception as ex:
-            print(ex)
-            continue
+                    # Show the model architecture
+                    print('\n')
+                    encoder.summary()
+                    print('\n')
+                    decoder.summary()
+                    print('\n')
+
+                    # stop training ang exit
+                    print('\nThe training has ended!\n')
+                    return
+
+                starttime = time.time()
+
 
     # Save the weights
     encoder.save_weights(model_legal_dir + "/encoder")
@@ -705,6 +739,7 @@ def train():
     print('\nThe training has ended!\n')
     return
 
+
 checkpoint.restore(manager.latest_checkpoint)
 if manager.latest_checkpoint:
     print("Fine tuned model restored from {}".format(manager.latest_checkpoint))
@@ -714,61 +749,9 @@ else:
 # Fine tuning of models
 train()
 
+# Validation of models
+val_acc = validate()
+print('\n\n\nTop-{}-accuracy of model is {}%'.format(TOP_N, val_acc[0]))
+print('Top-1-accuracy of model is {}%'.format(val_acc[1]))
 
-"""
-print('\nPredicting sentences in progress...\n')
-# Answers to test_sents
-answer_sents = (
-    "ask where brack_open dbr_Handy_Manny dbo_numberOfEpisodes var_a sep_dot dbr_Absolutely_Fabulous dbo_numberOfEpisodes var_b sep_dot filter  attr_open var_amath_gtvar_b attr_close  brack_close",
-    "select distinct var_uri where brack_open var_uri rdf_type dbo_Mountain sep_dot var_uri dbo_locatedInArea dbr_Liechtenstein sep_dot var_uri dbo_elevation var_elevation sep_dot brack_close _obd_ var_elevation  limit 1",
-    "SELECT DISTINCT var_uri where brack_open var_x dbo_occupation dbr_University_of_Ottawa sep_dot var_x dbo_nationality var_uri brack_close",
-    "SELECT DISTINCT var_uri where brack_open dbr_East_Gaston_High_School dbp_athletics var_uri sep_dot dbr_Julián_Rejala dbo_field var_uri brack_close",
-    "SELECT DISTINCT var_uri where brack_open dbr_2011_GEICO_400 dbp_firstDriver var_uri brack_close",
-    "SELECT DISTINCT var_uri where brack_open dbr_Oui_Oui,_Si_Si,_Ja_Ja,_Da_Da dbo_artist var_uri brack_close",
-    "SELECT DISTINCT var_uri where brack_open var_uri dbp_family dbr_King_family_ attr_open Emmerdale attr_close  sep_dot var_uri dbp_family dbr_Sugden_family sep_dot var_uri a dbo_FictionalCharacter brack_close",
-    "SELECT DISTINCT var_uri where brack_open dbr_The_King's_Dragon dbo_subsequentWork var_x sep_dot var_x dbo_series var_uri sep_dot var_x a dbo_Book brack_close",
-    "ASK where brack_open dbr_The_Rutles dbo_formerBandMember dbr_Neil_Innes brack_close",
-    "SELECT DISTINCT COUNT attr_open var_uri attr_close  where brack_open var_x dbo_publisher dbr_Gold_Medal_Books sep_dot var_x dbp_genre var_uri brack_close",
-    "SELECT DISTINCT var_uri where brack_open var_uri dbo_manufacturer dbr_Mazda sep_dot var_uri dbo_manufacturer dbr_Toyota brack_close",
-    "SELECT DISTINCT var_uri where brack_open dbr_Roger_Tan dbp_education var_uri sep_dot dbr_Kwan_Cho-yiu dbo_almaMater var_uri brack_close",
-    "SELECT DISTINCT var_uri where brack_open var_x dbo_type dbr_RTÉ sep_dot var_x dbo_regionServed var_uri sep_dot var_x a dbo_Organisation brack_close",
-    "SELECT DISTINCT var_uri where brack_open dbr_Virginia_State_Route_252 dbo_routeStart var_uri brack_close",
-    "SELECT DISTINCT var_uri where brack_open var_x dbo_birthPlace dbr_Moravia sep_dot var_uri dbo_commander var_x sep_dot var_uri a dbo_MilitaryConflict brack_close",
-    "SELECT DISTINCT var_uri where brack_open dbr_Ngô_Xuân_Lịch dbo_battle var_uri sep_dot dbr_John_R._Lasater dbp_battles var_uri brack_close",
-    "SELECT DISTINCT var_uri where brack_open dbr_John_Archibald_Campbell dbp_office var_uri sep_dot dbr_Pierce_Butler_ attr_open justice attr_close  dbp_office var_uri brack_close",
-    "SELECT DISTINCT var_uri where brack_open var_uri dbo_restingPlace dbr_La_Crosse,_Wisconsin sep_dot var_uri dbp_predecessor dbr_Walter_D._McIndoe sep_dot var_uri a dbo_Person brack_close",
-    "SELECT DISTINCT var_uri where brack_open dbr_J._M._G._Le_Clézio dbo_notableWork var_uri brack_close",
-    "SELECT DISTINCT var_uri where brack_open dbr_RD-0216 dbp_purpose var_uri brack_close",
-    "SELECT DISTINCT var_uri where brack_open dbr_Jeewan_Kumaranatunga dbo_relation var_uri brack_close"
-)
-
-test_sents = (
-    "does handy manny have more episodes than absolutely fabulous?",
-    "what is the highest mountain in liechtenstein?",
-    "university of ottawa is played by which countries' citizens?",
-    "List the sports of east gaston high school which are of interest of julián rejala ?",
-    "Which driver came first in the 2011 geico 400 ?",
-    "Who is the performer of oui oui ?",
-    "What is the fictional character which belongs to families of king family and sugden family?",
-    "What is the series of the book which is a subsequent work of the king's dragon ?",
-    "Was neil innes a member of the rutles?",
-    "How many different kinds of games are published by gold medal books?",
-    "What is manufactured by mazda and toyota togather?",
-    "Which education center roger tan attended which was also the alma mater of kwan cho-yiu ?",
-    "List the served region of the organisations of rté.",
-    "What is the route start of virginia state route 252 ?",
-    "In which wars did commanders born in moravia fight?",
-    "Which battle is ngô xuân lịch associated with to which john r. lasater is also associated ?",
-    "Where do the politicians, john archibald campbell and pierce butler work?",
-    "List the people with final resting place as la crosse and has walter d. mcindoe as predecessor?",
-    "List all the notable works of  j. m. g. le clézio?",
-    "What is the purpose of rd-0216 ?",
-    "With whom is jeewan kumaranatunga a relative to who also served Nazi Army?"
-)
-
-for i, test_sent in enumerate(test_sents):
-    test_sequence = normalize_string(test_sent)
-    _, _, _, _, text = predict(test_sequence)
-    print(text)
-"""
-print('\nProgram ended successfully\n')
+print('\n\nProgram ended successfully\n')
