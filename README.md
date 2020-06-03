@@ -37,13 +37,13 @@ python run_model.py chmod +x
 or open your prefered code editing software that can run python code, import downloaded project into it and run it.
 
 Repository consits of:
-1. 'data' folder - contains datasets (legal questions in NLP and SPARQL format) used to train the models
+1. 'data' folder - contains datasets (legal questions in NL and SPARQL format) used to train the models
 2. 'model' folder - contains encoder-decoder network for running the model without training
 3. 'training_images' folder - contains images that show training progress and results of model in 'model' folder
 4. 'create_unique_dataset.py' - receives a dataset containing duplicate questions, and returns all questions without duplicates
 5. 'fine_tuning.py' - uses the model from the 'model' folder created by 'transformer_model.py' to fit it with the desired dataset (in this case 'data/unique.legal' datasets)
 6. 'run_model.py' - run the model in 'real world' use case
-7. 'transformer_model.py' - trains the model using a dataset containing 894.499 instances of NLP-SPARQL questions retrieved from [here](https://figshare.com/articles/Question-NSpM_SPARQL_dataset_EN_/6118505)
+7. 'transformer_model.py' - trains the model using a dataset containing 894.499 instances of NL-SPARQL questions retrieved from [here](https://figshare.com/articles/Question-NSpM_SPARQL_dataset_EN_/6118505)
 8. 'transformer_sparql.py' - trains the model directly over a datasets of legal questions ('data/unique-legal' datasets)
 9. '.0' - file used by nltk library
 
